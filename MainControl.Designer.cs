@@ -41,6 +41,7 @@
             this.tsbCloseThisTab = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbLoadEntities = new System.Windows.Forms.ToolStripButton();
+            this.btnLoadDashboard = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbEditFormXml = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -54,10 +55,12 @@
             this.lvFormXmls = new System.Windows.Forms.ListView();
             this.columnHeaderSelect = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.isdefault = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.isdesktopenabled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.istabletenabled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.toolStripButtonOpenCRMEditor = new System.Windows.Forms.ToolStripButton();
             this.gbEntities.SuspendLayout();
             this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -155,8 +158,10 @@
             this.tsbCloseThisTab,
             this.toolStripSeparator2,
             this.tsbLoadEntities,
+            this.btnLoadDashboard,
             this.toolStripSeparator1,
             this.tsbEditFormXml,
+            this.toolStripButtonOpenCRMEditor,
             this.toolStripSeparator3,
             this.tsbExportFormXmls,
             this.tsbImportFormXmls});
@@ -190,6 +195,15 @@
             this.tsbLoadEntities.Size = new System.Drawing.Size(118, 27);
             this.tsbLoadEntities.Text = "Load Entities";
             this.tsbLoadEntities.Click += new System.EventHandler(this.TsbLoadEntitiesClick);
+            // 
+            // btnLoadDashboard
+            // 
+            this.btnLoadDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadDashboard.Image")));
+            this.btnLoadDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLoadDashboard.Name = "btnLoadDashboard";
+            this.btnLoadDashboard.Size = new System.Drawing.Size(149, 27);
+            this.btnLoadDashboard.Text = "Load Dashboards";
+            this.btnLoadDashboard.Click += new System.EventHandler(this.btnLoadDashboard_Click);
             // 
             // toolStripSeparator1
             // 
@@ -298,6 +312,7 @@
             this.lvFormXmls.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderSelect,
             this.columnHeaderName,
+            this.columnHeader3,
             this.isdefault,
             this.isdesktopenabled,
             this.istabletenabled,
@@ -313,6 +328,7 @@
             this.lvFormXmls.UseCompatibleStateImageBehavior = false;
             this.lvFormXmls.View = System.Windows.Forms.View.Details;
             this.lvFormXmls.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewColumnClick);
+            this.lvFormXmls.SelectedIndexChanged += new System.EventHandler(this.lvFormXmls_SelectedIndexChanged);
             // 
             // columnHeaderSelect
             // 
@@ -323,6 +339,10 @@
             // 
             this.columnHeaderName.Text = "Name";
             this.columnHeaderName.Width = 233;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Is User ";
             // 
             // isdefault
             // 
@@ -341,6 +361,16 @@
             // 
             this.columnHeader5.Text = "Description";
             this.columnHeader5.Width = 306;
+            // 
+            // toolStripButtonOpenCRMEditor
+            // 
+            this.toolStripButtonOpenCRMEditor.Enabled = false;
+            this.toolStripButtonOpenCRMEditor.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenCRMEditor.Image")));
+            this.toolStripButtonOpenCRMEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenCRMEditor.Name = "toolStripButtonOpenCRMEditor";
+            this.toolStripButtonOpenCRMEditor.Size = new System.Drawing.Size(104, 27);
+            this.toolStripButtonOpenCRMEditor.Text = "Open CRM";
+            this.toolStripButtonOpenCRMEditor.Click += new System.EventHandler(this.toolStripButtonOpenCRMEditor_Click);
             // 
             // MainControl
             // 
@@ -394,5 +424,8 @@
         private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.ColumnHeader isdefault;
         private System.Windows.Forms.ColumnHeader istabletenabled;
+        private System.Windows.Forms.ToolStripButton btnLoadDashboard;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOpenCRMEditor;
     }
 }

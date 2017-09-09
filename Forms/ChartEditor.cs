@@ -65,6 +65,14 @@ namespace ITLec.FormXmlManager.Forms
                  txtFormXmlType.Text = isSystemFormXml ? "System" : "User";*/
 
 
+            bool isUser = true;
+            if (formXml.Attributes.Contains("formid"))
+            {
+                isUser = false;
+            }
+
+            btnUpdate.Visible = isUser;
+            btnUpdatePublish.Visible = !isUser;
 
         }
 
@@ -139,16 +147,38 @@ namespace ITLec.FormXmlManager.Forms
 
             infoPanel = InformationPanel.GetInformationPanel(this, "Updating formXml...", 350, 150);
 
+
+            string objectType = formXml.GetAttributeValue<string>("objecttypecode");
+
+            string paramXml = "";
+            string xmlType = "Entity";
+            if (objectType == "none")
+            {
+                xmlType = "Dashboard";
+                var dashboardId = formXml.Id;
+                paramXml = string.Format(@"<importexportxml>
+ <dashboards>
+  <dashboard>{0}</dashboard>
+ </dashboards>
+</importexportxml>", dashboardId);
+            }
+            else
+            {
+                paramXml = string.Format(" < importexportxml><entities><entity>{0}</entity></entities><nodes/><securityroles/><settings/><workflows/></importexportxml>", objectType);
+            }
+
+
             var worker = new BackgroundWorker { WorkerReportsProgress = true };
             worker.DoWork += (w, evt) =>
             {
                 service.Update((Entity)evt.Argument);
 
-                ((BackgroundWorker)w).ReportProgress(0, "Publishing entity...");
+                ((BackgroundWorker)w).ReportProgress(0, "Publishing " + xmlType +"...");
+
 
                 service.Execute(new PublishXmlRequest
                 {
-                    ParameterXml = string.Format("<importexportxml><entities><entity>{0}</entity></entities><nodes/><securityroles/><settings/><workflows/></importexportxml>", formXml.GetAttributeValue<string>("objecttypecode"))
+                    ParameterXml = paramXml
                 });
             };
             worker.ProgressChanged += (w, evt) =>
@@ -224,17 +254,17 @@ namespace ITLec.FormXmlManager.Forms
                 newformXml["description"] = txtDescription.Text;
                // newformXml["datadescription"] = tecDataDescription.Text;
                 newformXml["formxml"] = tecVisualizationDescription.Text;
+                newformXml.Attributes.Remove(newformXml.LogicalName + "id");
+             /*       newformXml.Id = Guid.NewGuid();
 
-                newformXml.Id = Guid.NewGuid();
-
-                if (newformXml.Attributes.Contains("savedqueryvisualizationid"))
+            if (newformXml.Attributes.Contains("savedqueryvisualizationid"))
                 {
                     newformXml["savedqueryvisualizationid"] = newformXml.Id;
                 }
                 else
                 {
                     newformXml["userqueryvisualizationid"] = newformXml.Id;
-                }
+                }*/
 
                 infoPanel = InformationPanel.GetInformationPanel(this, "Save As formXml...", 350, 150);
 

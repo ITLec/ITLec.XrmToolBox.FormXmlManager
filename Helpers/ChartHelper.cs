@@ -152,19 +152,19 @@ namespace ITLec.FormXmlManager.Helpers
                 }
             });
 
-            /* var userqueries = service.RetrieveMultiple(new QueryExpression("userqueryvisualization")
+             var userqueries = service.RetrieveMultiple(new QueryExpression("userform")
              {
                  ColumnSet = new ColumnSet(true),
                  Criteria = new FilterExpression
                  {
                      Conditions =
                      {
-                         new ConditionExpression("primaryentitytypecode", ConditionOperator.Equal, entityLogicalName)
+                         new ConditionExpression("objecttypecode", ConditionOperator.Equal, entityLogicalName)
                      }
                  }
              });
 
-             savedqueries.Entities.AddRange(userqueries.Entities.ToArray());*/
+             savedqueries.Entities.AddRange(userqueries.Entities.ToArray());
             return savedqueries;
         }
 

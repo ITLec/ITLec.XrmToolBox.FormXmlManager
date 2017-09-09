@@ -72,6 +72,47 @@ namespace ITLec.FormXmlManager
                         tsbImportFormXmls.Enabled = true;
                         tsbExportFormXmls.Enabled = true;
                         tsbEditFormXml.Enabled = true;
+                        toolStripButtonOpenCRMEditor.Enabled = true;
+                        txtSearchEntity.Focus();
+                    }
+                }
+            });
+        }
+        public void LoadDashboards()
+        {
+            txtSearchEntity.Text = string.Empty;
+            lvEntities.Items.Clear();
+            gbEntities.Enabled = false;
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading Dashboards...",
+                Work = (bw, e) =>
+                {
+                  //  e.Result = MetadataHelper.RetrieveEntities(Service);
+                },
+                PostWorkCallBack = e =>
+                {
+                    if (e.Error != null)
+                    {
+                        MessageBox.Show(ParentForm, e.Error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        lvEntities.Items.Clear();
+
+
+                        var item = new ListViewItem { Text = "Dashboards", Tag = "none" };
+                        item.SubItems.Add("none");
+                   //     list.Add(item);
+
+                     //   listViewItemsCache = list.ToArray();
+                        lvEntities.Items.Add(item);
+
+                        gbEntities.Enabled = true;
+                        tsbImportFormXmls.Enabled = true;
+                        tsbExportFormXmls.Enabled = true;
+                        tsbEditFormXml.Enabled = true;
                         txtSearchEntity.Focus();
                     }
                 }
@@ -120,14 +161,20 @@ namespace ITLec.FormXmlManager
                         {
                             Cursor = Cursors.Default;
                             var formXmls = (EntityCollection)evt.Result;
-                            //lvFormXmls.Items.AddRange(formXmls.Entities.Select(
-                            //        c => new ListViewItem(,c.GetAttributeValue<string>("userqueryvisualizationid")) { Tag = c }).ToArray());
+                           // lvFormXmls.Items.AddRange(formXmls.Entities.Select(
+                           //         c => new ListViewItem(,c.GetAttributeValue<string>("userqueryvisualizationid")) { Tag = c }).ToArray());
                             foreach(var entity in formXmls.Entities)
                             {
+                                bool isUser = true;
+                              if(  entity.Attributes.Contains("formid"))
+                                {
+                                    isUser = false;
+                                }
 
                                 ListViewItem lvi = new ListViewItem( );
                                 lvi.Tag = entity;
                                 lvi.SubItems.Add(entity.GetAttributeValue<string>("name"));
+                                lvi.SubItems.Add(isUser.ToString());
                                 lvi.SubItems.Add(entity.GetAttributeValue<bool>("isdefault").ToString());
                                 lvi.SubItems.Add(entity.GetAttributeValue<bool>("isdesktopenabled").ToString());
                                 lvi.SubItems.Add(entity.GetAttributeValue<bool>("istabletenabled").ToString());
@@ -323,6 +370,40 @@ namespace ITLec.FormXmlManager
                     MessageBox.Show(ParentForm, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void lvFormXmls_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoadDashboard_Click(object sender, EventArgs e)
+        {
+
+            ExecuteMethod(LoadDashboards);
+        }
+
+        private void toolStripButtonOpenCRMEditor_Click(object sender, EventArgs e)
+        {
+
+            if (lvFormXmls.SelectedItems.Count == 0)
+                return;
+
+            var entity = (Entity)lvFormXmls.SelectedItems[0].Tag;
+            string entityName = entity.GetAttributeValue<string>("objecttypecode");
+            string url = "";
+            if (entityName != "none")
+            {
+                url = string.Format("{0}main.aspx?etn={1}&extraqs=formtype={2}&formId={3}&pagetype=formeditor", ConnectionDetail.WebApplicationUrl, entityName, "main", entity.Id);
+            }
+            else
+            {
+                url = string.Format("{0}main.aspx?extraqs=%26formId%3d%7b{1}%7d%26dashboardType%3d1030&pagetype=dashboardeditor", ConnectionDetail.WebApplicationUrl, entity.Id);
+
+                ProcessStartInfo sInfo = new ProcessStartInfo(url);
+                Process.Start(sInfo);
+            }
+            //https://itlec.crm4.dynamics.com/
         }
     }
 }
