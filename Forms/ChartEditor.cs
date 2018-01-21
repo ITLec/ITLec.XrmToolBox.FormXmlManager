@@ -164,7 +164,7 @@ namespace ITLec.FormXmlManager.Forms
             }
             else
             {
-                paramXml = string.Format(" < importexportxml><entities><entity>{0}</entity></entities><nodes/><securityroles/><settings/><workflows/></importexportxml>", objectType);
+                paramXml = string.Format(" <importexportxml><entities><entity>{0}</entity></entities><nodes/><securityroles/><settings/><workflows/></importexportxml>", objectType);
             }
 
 
