@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ITLec.CRMFormXmlGuy.AppCode
+namespace ITLec.CRMFormXml.AppCode
 {
     public  class Common
     {
@@ -33,7 +33,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
             return retObj;
         }
 
-        private static ITLec.CRMFormXmlGuy.FormXml formXmlStructure = null;
+        private static ITLec.CRMFormXml.FormXml formXmlStructure = null;
 
         public static string FormXmlStructurePath
         {
@@ -45,13 +45,13 @@ namespace ITLec.CRMFormXmlGuy.AppCode
             }
         }
 
-        public static ITLec.CRMFormXmlGuy.FormXml FormXmlStructure
+        public static ITLec.CRMFormXml.FormXml FormXmlStructure
         {
             get
             {
                 //if(formXmlStructure == null)
                 //{
-                    formXmlStructure = (ITLec.CRMFormXmlGuy.FormXml)ITLec.CRMFormXmlGuy.AppCode.Common.DeserializeObj(FormXmlStructurePath, new ITLec.CRMFormXmlGuy.FormXml());
+                    formXmlStructure = (ITLec.CRMFormXml.FormXml)ITLec.CRMFormXml.AppCode.Common.DeserializeObj(FormXmlStructurePath, new ITLec.CRMFormXml.FormXml());
                 //}
 
                 return formXmlStructure;

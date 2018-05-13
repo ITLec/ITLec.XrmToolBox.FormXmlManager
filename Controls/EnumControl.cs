@@ -34,8 +34,8 @@ namespace ITLec.FormXmlManager.Controls
         protected override void FillControls()
         {
             EnumItems =
-                                 ITLec.CRMFormXmlGuy.AppCode.EnumHelper.GetCustomEnumItems(_enumType);
-            ITLec.CRMFormXmlGuy.AppCode.Common.FillComboBox(cmbEnum, EnumItems);
+                                 ITLec.CRMFormXml.AppCode.EnumHelper.GetCustomEnumItems(_enumType);
+            ITLec.CRMFormXml.AppCode.Common.FillComboBox(cmbEnum, EnumItems);
 
             SetCustomProperties();
         }
@@ -45,7 +45,7 @@ namespace ITLec.FormXmlManager.Controls
             //   throw new NotImplementedException();
 
 
-            var _formXml = ITLec.CRMFormXmlGuy.AppCode.Common.FormXmlStructure;
+            var _formXml = ITLec.CRMFormXml.AppCode.Common.FormXmlStructure;
 
             var section = _formXml.Sections.Where(e => e.Name.ToLower() == currentNodeName.ToLower()).FirstOrDefault();
 
@@ -92,7 +92,7 @@ namespace ITLec.FormXmlManager.Controls
                 if (!EnumItems.ContainsKey(val))
                 {
                     EnumItems.Add(val, val);
-                    ITLec.CRMFormXmlGuy.AppCode.Common.FillComboBox(cmbEnum, EnumItems);
+                    ITLec.CRMFormXml.AppCode.Common.FillComboBox(cmbEnum, EnumItems);
                 }
 
                 cmbEnum.Text = val;

@@ -8,6 +8,6 @@ namespace ITLec.FormXmlManager.AppCode
 {
     public class SaveEventArgs : EventArgs
     {
-        public Dictionary<string, ITLec.CRMFormXmlGuy.Property> AttributeCollection { get; set; }
+        public Dictionary<string, ITLec.CRMFormXml.Property> AttributeCollection { get; set; }
     }
 }

@@ -32,8 +32,8 @@ namespace ITLec.FormXmlManager.Controls
         Dictionary<string, string> FontTypes = new Dictionary<string, string>();
         protected override void FillControls()
         {
-            FontTypes = ITLec.CRMFormXmlGuy.AppCode.EnumHelper.GetCustomEnumItems("Font");
-            ITLec.CRMFormXmlGuy.AppCode.Common.FillComboBox(comboBoxFontType, FontTypes);
+            FontTypes = ITLec.CRMFormXml.AppCode.EnumHelper.GetCustomEnumItems("Font");
+            ITLec.CRMFormXml.AppCode.Common.FillComboBox(comboBoxFontType, FontTypes);
         }
 
         protected override string GetValue()

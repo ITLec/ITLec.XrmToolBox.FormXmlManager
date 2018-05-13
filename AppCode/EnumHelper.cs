@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITLec.CRMFormXmlGuy.AppCode
+namespace ITLec.CRMFormXml.AppCode
 {
     public class EnumHelper
     {
@@ -85,7 +85,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
 
             all.Add("-1", "");
 
-            var _formXml = ITLec.CRMFormXmlGuy.AppCode.Common.FormXmlStructure;
+            var _formXml = ITLec.CRMFormXml.AppCode.Common.FormXmlStructure;
 
             var customEnum = _formXml.CustomEnums.Where(e => e.Name.ToLower() == enumType.ToLower()).FirstOrDefault();
 

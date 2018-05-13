@@ -114,11 +114,11 @@ namespace ITLec.FormXmlManager.Controls
 
         protected abstract void SetDesc(string desc);
         
-        public ITLec.CRMFormXmlGuy.Property CurrentProperty
+        public ITLec.CRMFormXml.Property CurrentProperty
         {
             get
             {
-               var retVal =  new ITLec.CRMFormXmlGuy.Property() {/*DefaultValue = this.InitValue,*/ Desc=this.Desc, DisplayName=this.Label, Name= this.Key, Value = this.Value};
+               var retVal =  new ITLec.CRMFormXml.Property() {/*DefaultValue = this.InitValue,*/ Desc=this.Desc, DisplayName=this.Label, Name= this.Key, Value = this.Value};
 
                 return retVal;
             }

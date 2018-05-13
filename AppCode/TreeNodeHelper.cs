@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace ITLec.CRMFormXmlGuy.AppCode
+namespace ITLec.CRMFormXml.AppCode
 {
 
     internal class TreeNodeHelper
@@ -22,7 +22,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
         /// <param name="form">Current application form</param>
         public static void AddContextMenu(TreeNode node, FormXmlEditorHelper form)
         {
-            var collec = (Dictionary<string, ITLec.CRMFormXmlGuy.Property>)node.Tag;
+            var collec = (Dictionary<string, ITLec.CRMFormXml.Property>)node.Tag;
 
             HideAllContextMenuItems(form.nodeMenu);
             string nodeFullName = TreeNodeHelper.FullNodeName(node);
@@ -121,7 +121,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
             {
 
                 var properties = section.Properties;
-                Dictionary<string, ITLec.CRMFormXmlGuy.Property> arr = new Dictionary<string, Property>();
+                Dictionary<string, ITLec.CRMFormXml.Property> arr = new Dictionary<string, Property>();
 
 
                 subNode.Tag = arr;
@@ -155,7 +155,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
         {
             TreeNode node = new TreeNode(xmlNode.Name);
 
-            Dictionary<string, ITLec.CRMFormXmlGuy.Property> attributes = new Dictionary<string,  ITLec.CRMFormXmlGuy.Property>();
+            Dictionary<string, ITLec.CRMFormXml.Property> attributes = new Dictionary<string,  ITLec.CRMFormXml.Property>();
 
             if (xmlNode.NodeType != XmlNodeType.Text)
             {
@@ -164,7 +164,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
                     if (attr.Name == "CustomProperties")
                     {
                         TreeNode customNode = new TreeNode("CustomProperties");
-                        Dictionary <string, ITLec.CRMFormXmlGuy.Property> customAttributes = new Dictionary<string, ITLec.CRMFormXmlGuy.Property>();
+                        Dictionary <string, ITLec.CRMFormXml.Property> customAttributes = new Dictionary<string, ITLec.CRMFormXml.Property>();
 
                         string[] propertyItems = attr.Value.Replace(" ","").Split(',');
 
@@ -176,7 +176,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
                                 string propertyItemKey = propertyItemStrs[0];
                                 string propertyItemValue = propertyItemStrs[1];
 
-                                ITLec.CRMFormXmlGuy.Property pro = new Property() { Value = propertyItemValue, Name = propertyItemKey };
+                                ITLec.CRMFormXml.Property pro = new Property() { Value = propertyItemValue, Name = propertyItemKey };
 
                                 customAttributes.Add(propertyItemKey, pro);
                             }
@@ -186,7 +186,7 @@ namespace ITLec.CRMFormXmlGuy.AppCode
                     }
                     else
                     {
-                        ITLec.CRMFormXmlGuy.Property pro = new Property() {Value= attr.Value, Name = attr.Name};
+                        ITLec.CRMFormXml.Property pro = new Property() {Value= attr.Value, Name = attr.Name};
                         attributes.Add(attr.Name, pro);
                     }
                     if(attr.Name == "FormXmlType")

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ITLec.CRMFormXmlGuy.AppCode;
+using ITLec.CRMFormXml.AppCode;
 using ITLec.FormXmlManager.AppCode;
-using ITLec.CRMFormXmlGuy;
+using ITLec.CRMFormXml;
 using ITLec.FormXmlManager.Forms;
 
 namespace ITLec.FormXmlManager.Controls
@@ -45,7 +45,7 @@ namespace ITLec.FormXmlManager.Controls
         private void FillControls()
         {
 
-            var _formXml = ITLec.CRMFormXmlGuy.AppCode.Common.FormXmlStructure;
+            var _formXml = ITLec.CRMFormXml.AppCode.Common.FormXmlStructure;
             Section section = null;
             if (NodeName == "Series.Series.CustomProperties")
             {
@@ -88,7 +88,7 @@ namespace ITLec.FormXmlManager.Controls
         public bool Save()
         {
 
-            Dictionary<string, ITLec.CRMFormXmlGuy.Property> collection = new Dictionary<string, ITLec.CRMFormXmlGuy.Property>();
+            Dictionary<string, ITLec.CRMFormXml.Property> collection = new Dictionary<string, ITLec.CRMFormXml.Property>();
 
             foreach (var dic in DictionaryKeyControl)
             {
@@ -111,7 +111,7 @@ namespace ITLec.FormXmlManager.Controls
 
         #region Send Events
 
-        private void SendSaveMessage(Dictionary<string, ITLec.CRMFormXmlGuy.Property> collection)
+        private void SendSaveMessage(Dictionary<string, ITLec.CRMFormXml.Property> collection)
         {
             SaveEventArgs sea = new SaveEventArgs { AttributeCollection = collection };
             OnSaving(this, sea);

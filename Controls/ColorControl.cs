@@ -63,7 +63,7 @@ namespace ITLec.FormXmlManager.Controls
             checkBoxIgnoreSaving.Visible = true;
                 string[] strs = val.Split(',');
 
-                Color color = ITLec.CRMFormXmlGuy.AppCode.Common.ConvertStringToColor(val).Value;
+                Color color = ITLec.CRMFormXml.AppCode.Common.ConvertStringToColor(val).Value;
                 panelColor.BackColor = color;
             }
         }
@@ -94,7 +94,7 @@ namespace ITLec.FormXmlManager.Controls
             checkBoxIgnoreSaving.Visible = true;
             try
             {
-                Color? color = ITLec.CRMFormXmlGuy.AppCode.Common.ConvertStringToColor(textBoxColor.Text);
+                Color? color = ITLec.CRMFormXml.AppCode.Common.ConvertStringToColor(textBoxColor.Text);
                 if (color != null)
                 {
                     panelColor.BackColor = color.Value;

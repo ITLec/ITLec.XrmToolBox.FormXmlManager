@@ -161,17 +161,17 @@
     <Compile Include="Controls\TextControl.Designer.cs">
       <DependentUpon>TextControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChartEditor.cs">
+    <Compile Include="Forms\FormXmlEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChartEditor.Designer.cs">
-      <DependentUpon>ChartEditor.cs</DependentUpon>
+    <Compile Include="Forms\FormXmlEditor.Designer.cs">
+      <DependentUpon>FormXmlEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChartEditorHelper.cs">
+    <Compile Include="Forms\FormXmlEditorHelper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChartEditorHelper.Designer.cs">
-      <DependentUpon>ChartEditorHelper.cs</DependentUpon>
+    <Compile Include="Forms\FormXmlEditorHelper.Designer.cs">
+      <DependentUpon>FormXmlEditorHelper.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CustomFolderBrowserDialog.cs">
       <SubType>Form</SubType>
@@ -229,11 +229,11 @@
     <EmbeddedResource Include="Controls\TextControl.resx">
       <DependentUpon>TextControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChartEditor.resx">
-      <DependentUpon>ChartEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormXmlEditor.resx">
+      <DependentUpon>FormXmlEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChartEditorHelper.resx">
-      <DependentUpon>ChartEditorHelper.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormXmlEditorHelper.resx">
+      <DependentUpon>FormXmlEditorHelper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomFolderBrowserDialog.resx">
       <DependentUpon>CustomFolderBrowserDialog.cs</DependentUpon>
@@ -254,7 +254,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\helpIcon.png" />
