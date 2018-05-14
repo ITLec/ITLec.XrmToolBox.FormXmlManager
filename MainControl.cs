@@ -400,9 +400,9 @@ namespace ITLec.FormXmlManager
             {
                 url = string.Format("{0}main.aspx?extraqs=%26formId%3d%7b{1}%7d%26dashboardType%3d1030&pagetype=dashboardeditor", ConnectionDetail.WebApplicationUrl, entity.Id);
 
+            }
                 ProcessStartInfo sInfo = new ProcessStartInfo(url);
                 Process.Start(sInfo);
-            }
             //https://itlec.crm4.dynamics.com/
         }
     }
