@@ -286,7 +286,7 @@ namespace ITLec.FormXmlManager
 
         private void OnSearchKeyUp(object sender, KeyEventArgs e)
         {
-            var entityName = txtSearchEntity.Text;
+            var entityName = txtSearchEntity.Text.ToLower();
             if (string.IsNullOrWhiteSpace(entityName))
             {
                 lvEntities.BeginUpdate();
@@ -299,7 +299,7 @@ namespace ITLec.FormXmlManager
                 lvEntities.BeginUpdate();
                 lvEntities.Items.Clear();
                 var filteredItems = listViewItemsCache
-                    .Where(item => item.Text.StartsWith(entityName, StringComparison.OrdinalIgnoreCase))
+                    .Where(item => (item.Tag.ToString().ToLower().Contains(entityName)) || (item.Text.ToLower().Contains(entityName)))
                     .ToArray();
                 lvEntities.Items.AddRange(filteredItems);
                 lvEntities.EndUpdate();

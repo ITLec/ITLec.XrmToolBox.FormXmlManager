@@ -44,6 +44,7 @@
             this.btnLoadDashboard = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbEditFormXml = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOpenCRMEditor = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbExportFormXmls = new System.Windows.Forms.ToolStripButton();
             this.tsbImportFormXmls = new System.Windows.Forms.ToolStripDropDownButton();
@@ -60,7 +61,6 @@
             this.isdesktopenabled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.istabletenabled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolStripButtonOpenCRMEditor = new System.Windows.Forms.ToolStripButton();
             this.gbEntities.SuspendLayout();
             this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -78,10 +78,8 @@
             this.gbEntities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbEntities.Enabled = false;
             this.gbEntities.Location = new System.Drawing.Point(0, 0);
-            this.gbEntities.Margin = new System.Windows.Forms.Padding(4);
             this.gbEntities.Name = "gbEntities";
-            this.gbEntities.Padding = new System.Windows.Forms.Padding(4);
-            this.gbEntities.Size = new System.Drawing.Size(359, 605);
+            this.gbEntities.Size = new System.Drawing.Size(269, 492);
             this.gbEntities.TabIndex = 89;
             this.gbEntities.TabStop = false;
             this.gbEntities.Text = "Entities";
@@ -89,10 +87,9 @@
             // lblSearchEntity
             // 
             this.lblSearchEntity.AutoSize = true;
-            this.lblSearchEntity.Location = new System.Drawing.Point(8, 23);
-            this.lblSearchEntity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchEntity.Location = new System.Drawing.Point(6, 19);
             this.lblSearchEntity.Name = "lblSearchEntity";
-            this.lblSearchEntity.Size = new System.Drawing.Size(57, 17);
+            this.lblSearchEntity.Size = new System.Drawing.Size(44, 13);
             this.lblSearchEntity.TabIndex = 81;
             this.lblSearchEntity.Text = "Search:";
             // 
@@ -100,10 +97,9 @@
             // 
             this.txtSearchEntity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchEntity.Location = new System.Drawing.Point(75, 20);
-            this.txtSearchEntity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchEntity.Location = new System.Drawing.Point(56, 16);
             this.txtSearchEntity.Name = "txtSearchEntity";
-            this.txtSearchEntity.Size = new System.Drawing.Size(275, 22);
+            this.txtSearchEntity.Size = new System.Drawing.Size(207, 20);
             this.txtSearchEntity.TabIndex = 80;
             this.txtSearchEntity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnSearchKeyUp);
             // 
@@ -117,10 +113,9 @@
             this.columnHeader2});
             this.lvEntities.FullRowSelect = true;
             this.lvEntities.HideSelection = false;
-            this.lvEntities.Location = new System.Drawing.Point(8, 52);
-            this.lvEntities.Margin = new System.Windows.Forms.Padding(4);
+            this.lvEntities.Location = new System.Drawing.Point(6, 42);
             this.lvEntities.Name = "lvEntities";
-            this.lvEntities.Size = new System.Drawing.Size(342, 550);
+            this.lvEntities.Size = new System.Drawing.Size(258, 448);
             this.lvEntities.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvEntities.TabIndex = 79;
             this.lvEntities.UseCompatibleStateImageBehavior = false;
@@ -168,7 +163,7 @@
             this.tsMain.Location = new System.Drawing.Point(0, 0);
             this.tsMain.Name = "tsMain";
             this.tsMain.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.tsMain.Size = new System.Drawing.Size(1081, 30);
+            this.tsMain.Size = new System.Drawing.Size(811, 24);
             this.tsMain.TabIndex = 85;
             this.tsMain.Text = "toolStrip1";
             // 
@@ -178,21 +173,21 @@
             this.tsbCloseThisTab.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseThisTab.Image")));
             this.tsbCloseThisTab.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCloseThisTab.Name = "tsbCloseThisTab";
-            this.tsbCloseThisTab.Size = new System.Drawing.Size(24, 27);
+            this.tsbCloseThisTab.Size = new System.Drawing.Size(24, 21);
             this.tsbCloseThisTab.Text = "Close this tab";
             this.tsbCloseThisTab.Click += new System.EventHandler(this.TsbCloseThisTabClick);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 30);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 24);
             // 
             // tsbLoadEntities
             // 
             this.tsbLoadEntities.Image = ((System.Drawing.Image)(resources.GetObject("tsbLoadEntities.Image")));
             this.tsbLoadEntities.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbLoadEntities.Name = "tsbLoadEntities";
-            this.tsbLoadEntities.Size = new System.Drawing.Size(118, 27);
+            this.tsbLoadEntities.Size = new System.Drawing.Size(98, 21);
             this.tsbLoadEntities.Text = "Load Entities";
             this.tsbLoadEntities.Click += new System.EventHandler(this.TsbLoadEntitiesClick);
             // 
@@ -201,14 +196,14 @@
             this.btnLoadDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadDashboard.Image")));
             this.btnLoadDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLoadDashboard.Name = "btnLoadDashboard";
-            this.btnLoadDashboard.Size = new System.Drawing.Size(149, 27);
+            this.btnLoadDashboard.Size = new System.Drawing.Size(122, 21);
             this.btnLoadDashboard.Text = "Load Dashboards";
             this.btnLoadDashboard.Click += new System.EventHandler(this.btnLoadDashboard_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 30);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 24);
             // 
             // tsbEditFormXml
             // 
@@ -216,15 +211,25 @@
             this.tsbEditFormXml.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditFormXml.Image")));
             this.tsbEditFormXml.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditFormXml.Name = "tsbEditFormXml";
-            this.tsbEditFormXml.Size = new System.Drawing.Size(123, 27);
+            this.tsbEditFormXml.Size = new System.Drawing.Size(103, 21);
             this.tsbEditFormXml.Text = "Edit FormXml";
             this.tsbEditFormXml.ToolTipText = "Edit selected formXml";
             this.tsbEditFormXml.Click += new System.EventHandler(this.tsbEditFormXml_Click);
             // 
+            // toolStripButtonOpenCRMEditor
+            // 
+            this.toolStripButtonOpenCRMEditor.Enabled = false;
+            this.toolStripButtonOpenCRMEditor.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenCRMEditor.Image")));
+            this.toolStripButtonOpenCRMEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenCRMEditor.Name = "toolStripButtonOpenCRMEditor";
+            this.toolStripButtonOpenCRMEditor.Size = new System.Drawing.Size(89, 21);
+            this.toolStripButtonOpenCRMEditor.Text = "Open CRM";
+            this.toolStripButtonOpenCRMEditor.Click += new System.EventHandler(this.toolStripButtonOpenCRMEditor_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 30);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 24);
             // 
             // tsbExportFormXmls
             // 
@@ -232,7 +237,7 @@
             this.tsbExportFormXmls.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportFormXmls.Image")));
             this.tsbExportFormXmls.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExportFormXmls.Name = "tsbExportFormXmls";
-            this.tsbExportFormXmls.Size = new System.Drawing.Size(144, 27);
+            this.tsbExportFormXmls.Size = new System.Drawing.Size(119, 21);
             this.tsbExportFormXmls.Text = "Export formXmls";
             this.tsbExportFormXmls.ToolTipText = "Export formXmls that have been checked in formXmls list";
             this.tsbExportFormXmls.Visible = false;
@@ -246,7 +251,7 @@
             this.tsbImportFormXmls.Image = ((System.Drawing.Image)(resources.GetObject("tsbImportFormXmls.Image")));
             this.tsbImportFormXmls.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbImportFormXmls.Name = "tsbImportFormXmls";
-            this.tsbImportFormXmls.Size = new System.Drawing.Size(156, 27);
+            this.tsbImportFormXmls.Size = new System.Drawing.Size(131, 21);
             this.tsbImportFormXmls.Text = "Import formXmls";
             this.tsbImportFormXmls.Visible = false;
             // 
@@ -254,7 +259,7 @@
             // 
             this.importFormXmlsFromFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importFormXmlsFromFileToolStripMenuItem.Image")));
             this.importFormXmlsFromFileToolStripMenuItem.Name = "importFormXmlsFromFileToolStripMenuItem";
-            this.importFormXmlsFromFileToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.importFormXmlsFromFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.importFormXmlsFromFileToolStripMenuItem.Text = "From file";
             this.importFormXmlsFromFileToolStripMenuItem.ToolTipText = "Import one formXml from one formXml file definition file";
             this.importFormXmlsFromFileToolStripMenuItem.Click += new System.EventHandler(this.importFormXmlsFromFileToolStripMenuItem_Click);
@@ -263,7 +268,7 @@
             // 
             this.importFormXmlsFromFolderToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importFormXmlsFromFolderToolStripMenuItem.Image")));
             this.importFormXmlsFromFolderToolStripMenuItem.Name = "importFormXmlsFromFolderToolStripMenuItem";
-            this.importFormXmlsFromFolderToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.importFormXmlsFromFolderToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.importFormXmlsFromFolderToolStripMenuItem.Text = "From folder";
             this.importFormXmlsFromFolderToolStripMenuItem.ToolTipText = "Import one or multiple formXmls from formXml definition files contained in a fold" +
     "er";
@@ -278,8 +283,8 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -289,8 +294,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gbFormXmls);
-            this.splitContainer1.Size = new System.Drawing.Size(1081, 605);
-            this.splitContainer1.SplitterDistance = 359;
+            this.splitContainer1.Size = new System.Drawing.Size(811, 492);
+            this.splitContainer1.SplitterDistance = 269;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 90;
             // 
             // gbFormXmls
@@ -298,10 +304,10 @@
             this.gbFormXmls.Controls.Add(this.lvFormXmls);
             this.gbFormXmls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbFormXmls.Location = new System.Drawing.Point(0, 0);
-            this.gbFormXmls.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbFormXmls.Margin = new System.Windows.Forms.Padding(2);
             this.gbFormXmls.Name = "gbFormXmls";
-            this.gbFormXmls.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbFormXmls.Size = new System.Drawing.Size(718, 605);
+            this.gbFormXmls.Padding = new System.Windows.Forms.Padding(2);
+            this.gbFormXmls.Size = new System.Drawing.Size(539, 492);
             this.gbFormXmls.TabIndex = 0;
             this.gbFormXmls.TabStop = false;
             this.gbFormXmls.Text = "FormXmls";
@@ -320,10 +326,10 @@
             this.lvFormXmls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvFormXmls.FullRowSelect = true;
             this.lvFormXmls.HoverSelection = true;
-            this.lvFormXmls.Location = new System.Drawing.Point(3, 17);
-            this.lvFormXmls.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lvFormXmls.Location = new System.Drawing.Point(2, 15);
+            this.lvFormXmls.Margin = new System.Windows.Forms.Padding(2);
             this.lvFormXmls.Name = "lvFormXmls";
-            this.lvFormXmls.Size = new System.Drawing.Size(712, 586);
+            this.lvFormXmls.Size = new System.Drawing.Size(535, 475);
             this.lvFormXmls.TabIndex = 0;
             this.lvFormXmls.UseCompatibleStateImageBehavior = false;
             this.lvFormXmls.View = System.Windows.Forms.View.Details;
@@ -362,25 +368,14 @@
             this.columnHeader5.Text = "Description";
             this.columnHeader5.Width = 306;
             // 
-            // toolStripButtonOpenCRMEditor
-            // 
-            this.toolStripButtonOpenCRMEditor.Enabled = false;
-            this.toolStripButtonOpenCRMEditor.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenCRMEditor.Image")));
-            this.toolStripButtonOpenCRMEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonOpenCRMEditor.Name = "toolStripButtonOpenCRMEditor";
-            this.toolStripButtonOpenCRMEditor.Size = new System.Drawing.Size(104, 27);
-            this.toolStripButtonOpenCRMEditor.Text = "Open CRM";
-            this.toolStripButtonOpenCRMEditor.Click += new System.EventHandler(this.toolStripButtonOpenCRMEditor_Click);
-            // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tsMain);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainControl";
-            this.Size = new System.Drawing.Size(1081, 635);
+            this.Size = new System.Drawing.Size(811, 516);
             this.gbEntities.ResumeLayout(false);
             this.gbEntities.PerformLayout();
             this.tsMain.ResumeLayout(false);

@@ -121,6 +121,10 @@ namespace ITLec.FormXmlManager.Forms
 
             controlsDic.Add("<tab", "Tab");
             controlsDic.Add("<section", "Section");
+            controlsDic.Add("<section", "Section");
+            controlsDic.Add("<row", "Section");
+            controlsDic.Add("<cell", "Section");
+            controlsDic.Add("<label", "Section");
             controlsDic.Add("{3F4E2A56-F102-4B4D-AB9C-F1574CA5BFDA}", "AccessTeamEntityPicker");
             controlsDic.Add("{C72511AB-84E5-4FB7-A543-25B4FC01E83E}", "ActivitiesContainerControl");
             controlsDic.Add("{6636847D-B74D-4994-B55A-A6FAF97ECEA2}", "ActivitiesWallControl");
@@ -474,45 +478,83 @@ namespace ITLec.FormXmlManager.Forms
             listView.Sorting = listView.Sorting == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
             listView.ListViewItemSorter = new ListViewItemComparer(e.Column, listView.Sorting);
         }
-    }
-/*
-    public class VariXFolding : IFoldingStrategy
-    {
-        /// <summary>
-        /// Generates the foldings for our document.
-        /// </summary>
-        /// <param name="document">The current document.</param>
-        /// <param name="fileName">The filename of the document.</param>
-        /// <param name="parseInformation">Extra parse information, not used in this sample.</param>
-        /// <returns>A list of FoldMarkers.</returns>
-         List<FoldMarker> IFoldingStrategy.GenerateFoldMarkers(IDocument document, string fileName, object parseInformation)
+
+        private void btnGenerateNewGuid_Click(object sender, EventArgs e)
         {
-            List<FoldMarker> list = new List<FoldMarker>();
+            string xml = tecVisualizationDescription.Text;
+            string newXml = ReplaceGuids(xml);
+            tecVisualizationDescription.Text = newXml;
+        }
 
-            int start = 0;
+        static Dictionary<string, string> guidReplacements;
+        public  string ReplaceGuids(string xmlData)
+        {
+            guidReplacements = new Dictionary<string, string>();
+            string alphanum = "[0-9a-fA-F]";
+            string expression = string.Format(
+                @"<{1}.*[ ][i][d][=].*{0}{0}{0}{0}{0}{0}{0}{0}\-{0}{0}{0}{0}\-{0}{0}{0}{0}\-{0}{0}{0}{0}\-{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}",
+                alphanum, ddlNewGuid.Text);
+            return System.Text.RegularExpressions.Regex.Replace(xmlData, expression, new System.Text.RegularExpressions.MatchEvaluator(ReplaceGuid));
+        }
 
-            // Create foldmarkers for the whole document, enumerate through every line.
-            for (int i = 0; i < document.TotalNumberOfLines; i++)
+        public  string ReplaceGuid(System.Text.RegularExpressions.Match m)
+        {
+            //<section name="ACCOUNT_INFORMATION" showlabel="true" showbar="false" id="{0eb92e6c-bcb8-0d52-a188-d81543ddb7cd
+          //  if guidReplacements.Keys.!=m.Value)
             {
-                // Get the text of current line.
-                string text = document.GetText(document.GetLineSegment(i));
+                string str = m.Value;
 
-                if (text.StartsWith("<form") || text.Replace(" ","").StartsWith("<tab")) // Look for method starts
-                    start = i;
-                if (text.StartsWith("</form>") || text.Replace(" ", "").StartsWith("</tab>")) // Look for method endings
-                                                // Add a new FoldMarker to the list.
-                                                // document = the current document
-                                                // start = the start line for the FoldMarker
-                                                // document.GetLineSegment(start).Length = the ending of the current line = the start column of our foldmarker.
-                                                // i = The current line = end line of the FoldMarker.
-                                                // 7 = The end column
-                    list.Add(new FoldMarker(document, start, document.GetLineSegment(start).Length, i, 7));
+                string alphanum = "[0-9a-fA-F]";
+                string expression = string.Format(
+                    @"[ ][i][d][=].*{0}{0}{0}{0}{0}{0}{0}{0}\-{0}{0}{0}{0}\-{0}{0}{0}{0}\-{0}{0}{0}{0}\-{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}",
+                    alphanum);
+                string newGuid = " id=\"{" + Guid.NewGuid().ToString();
+                string finalStr = System.Text.RegularExpressions.Regex.Replace(str, expression, newGuid);
+
+                guidReplacements[m.Value] = finalStr;// Guid.NewGuid().ToString();
+            }
+            return guidReplacements[m.Value];
+        }
+
+    }
+    /*
+        public class VariXFolding : IFoldingStrategy
+        {
+            /// <summary>
+            /// Generates the foldings for our document.
+            /// </summary>
+            /// <param name="document">The current document.</param>
+            /// <param name="fileName">The filename of the document.</param>
+            /// <param name="parseInformation">Extra parse information, not used in this sample.</param>
+            /// <returns>A list of FoldMarkers.</returns>
+             List<FoldMarker> IFoldingStrategy.GenerateFoldMarkers(IDocument document, string fileName, object parseInformation)
+            {
+                List<FoldMarker> list = new List<FoldMarker>();
+
+                int start = 0;
+
+                // Create foldmarkers for the whole document, enumerate through every line.
+                for (int i = 0; i < document.TotalNumberOfLines; i++)
+                {
+                    // Get the text of current line.
+                    string text = document.GetText(document.GetLineSegment(i));
+
+                    if (text.StartsWith("<form") || text.Replace(" ","").StartsWith("<tab")) // Look for method starts
+                        start = i;
+                    if (text.StartsWith("</form>") || text.Replace(" ", "").StartsWith("</tab>")) // Look for method endings
+                                                    // Add a new FoldMarker to the list.
+                                                    // document = the current document
+                                                    // start = the start line for the FoldMarker
+                                                    // document.GetLineSegment(start).Length = the ending of the current line = the start column of our foldmarker.
+                                                    // i = The current line = end line of the FoldMarker.
+                                                    // 7 = The end column
+                        list.Add(new FoldMarker(document, start, document.GetLineSegment(start).Length, i, 7));
+                }
+
+                return list;
             }
 
-            return list;
         }
-        
-    }
-*/
+    */
 
 }
